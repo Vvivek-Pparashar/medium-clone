@@ -1,0 +1,15 @@
+.mb-author {
+  width: 100%;
+  /* background-color: aquamarine; */
+  height: 15%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.mb-author-img {
+  width: 30px;
+  height: 30px;
+  clip-path: circle();
+}

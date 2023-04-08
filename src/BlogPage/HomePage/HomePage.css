@@ -1,0 +1,157 @@
+.mb {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.mb-l {
+  flex: 65%;
+  height: 100%;
+  padding: 0 5rem;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgb(219, 219, 219);
+  padding-top: 4rem;
+}
+
+.mb-r {
+  flex: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 5rem 0 2.5rem;
+  position: sticky;
+  top: -65%;
+  padding-top: 4rem;
+}
+
+.mb-r-author {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 3px;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid rgb(219, 219, 219);
+  margin-bottom: 20px;
+}
+.mb-r-ht {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin: 1rem 0 2rem;
+}
+
+.mb-r-ht-head {
+  font-size: var(--head-5);
+  color: var(--s-pm-1);
+}
+
+.mb-r-ht-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mb-r-c {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mb-r-box {
+  width: 100%;
+  height: 100%;
+  background-color: var(--s-pm-2);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 8px;
+  color: white;
+}
+
+.mb-r-box-h6 {
+  font-size: var(--head-6);
+  line-height: 1;
+}
+
+.mb-r-box-ul {
+  margin-left: 1rem;
+}
+
+.mb-r-box-button {
+  width: 150px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: var(--s-pm-1);
+}
+
+.mb-r-rec {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin: 20px 0;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mb-r-rec-head {
+  font-size: var(--head-5);
+  color: var(--s-pm-1);
+}
+.mb-r-rec-option {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px 15px;
+  flex-wrap: wrap;
+}
+
+.articleview p {
+  font-weight: 300;
+  margin: 20px 0;
+}
+
+.articleview ul {
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 750px) {
+  .mb {
+    /* width: 100vw; */
+    /* height: 1000vh; */
+    /* background-color: blanchedalmond; */
+    /* display: flex; */
+    /* flex-direction: row; */
+  }
+
+  .mb-l {
+    flex: 100%;
+    /* background-color: brown; */
+    padding: 0 1.5rem;
+    /* display: flex; */
+    /* flex-direction: column; */
+  }
+
+  .mb-l-c {
+    width: 100%;
+    /* height: 100vh; */
+    /* background-color: cadetblue; */
+  }
+
+  .mb-r {
+    /* flex: 0%; */
+    display: none;
+    /* padding: 0 0rem 0 0rem; */
+  }
+}

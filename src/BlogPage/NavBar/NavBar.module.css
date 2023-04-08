@@ -1,0 +1,61 @@
+.m {
+  display: flex;
+  margin-block-start: 0;
+  gap: 1rem;
+  padding: 0.2rem 3rem;
+  justify-content: flex-end;
+  list-style-type: none;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  background-color: white;
+  z-index: 10;
+  border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.m-item,
+.m-link {
+  text-decoration: none;
+  color: var(--s-accent-1);
+}
+
+.m-link {
+  padding: 0.5rem 1.5rem;
+}
+
+.m-button-p {
+  border: 1px solid var(--s-accent-1);
+  border-radius: 0.5rem;
+}
+
+.m-button-s {
+  background-color: var(--s-pm-2);
+  border-radius: 0.5rem;
+}
+
+.logo {
+  background: url("../../../public/assests/landingPage/darkLogo.png") no-repeat
+    center;
+  background-size: 100% auto;
+  padding-block: 2rem;
+  width: 10rem;
+  margin-right: auto;
+}
+
+.activeLink {
+  background-color: var(--s-pm-1);
+  border-radius: 1rem;
+}
+
+.scrollUp {
+  top: -8rem;
+  transition: top 500ms ease-in-out;
+}
+
+.scrollDown {
+  top: 0;
+  transition: top 500ms ease-in-out;
+}

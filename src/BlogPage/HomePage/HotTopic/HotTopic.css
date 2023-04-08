@@ -1,0 +1,9 @@
+.mb-topics {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mb-topics-head {
+  font-size: var(--default-1);
+}
