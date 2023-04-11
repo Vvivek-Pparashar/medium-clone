@@ -3,7 +3,7 @@
   margin-block-start: 0;
   gap: 1rem;
   padding: 0.2rem 3rem;
-  justify-content: flex-end;
+  justify-content: space-between;
   list-style-type: none;
   align-items: center;
   position: fixed;

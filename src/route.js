@@ -3,7 +3,7 @@ import "./index.css";
 import HomePage from "./BlogPage/HomePage/HomePage.jsx";
 import OutletFeed from "./BlogPage/HomePage/OutletFeed";
 import ArticleView from "./BlogPage/HomePage/ArticleView";
-import TextEditor from "./BlogPage/TextEditor/TextEditor";
+import WriteHere from "./BlogPage/WriteHere/WriteHere";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
 
   {
         path:"/write",
-        element:<TextEditor/>
+        element:<WriteHere/>
   }
 ]);
 
