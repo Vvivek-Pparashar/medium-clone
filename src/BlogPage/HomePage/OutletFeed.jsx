@@ -3,7 +3,6 @@ import Card from "./Card/Card";
 import "./HomePage.css";
 import axios from "axios";
 import LeftSideFeed from "../RightSideFeed";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import SkeletonOutletFeed from "./SkeletonOutletFeed";
 
@@ -24,8 +23,6 @@ const OutletFeed = () => {
   }
 
   useEffect(() => {
-    // console.log("logged");
-    // window.scrollTo(0, 0);
     getArticles();
   }, []);
 
@@ -37,13 +34,12 @@ const OutletFeed = () => {
             <SkeletonOutletFeed />
             <SkeletonOutletFeed />
             <SkeletonOutletFeed />
-            <SkeletonOutletFeed />
-            <SkeletonOutletFeed />
           </>
         ) : (
           <></>
         )}
-        {data.map((e) => (
+
+        {data.slice(0).reverse().map((e) => (
           <Card title={e.title} id={e._id} feed={e.feed} img={e.img} />
         ))}
       </div>

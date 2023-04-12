@@ -3,6 +3,7 @@ import { useState } from "react";
 import style from "./NavBar.module.css";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import { Link } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
 
 export const NavBar = () => {
   const [display, setDisplay] = useState(`${style["m"]}`);
@@ -20,15 +21,26 @@ export const NavBar = () => {
   return (
     <div className="App">
       <ul className={display}>
-        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <div className={`${style["logo"]}`}></div>
-          <input type={"text"} placeholder="search" />
+        <div className={`${style["left-blog-nav"]}`}>
+          <img
+            className={`${style["logo-blog"]}`}
+            src="../../../assests/landingPage/darkLogo.png"
+            alt="logo"
+          />
+          <div className={`${style["input-wrapper"]}`}>
+            <input
+              className={`${style["blog-nav-input"]}`}
+              type={"text"}
+              placeholder="search"
+            />
+            <SearchIcon className={`${style["search-logo"]}`} />
+          </div>
         </div>
 
-        <Link to={"/write"}>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <EditNoteIcon />
-            <p>write</p>
+        <Link to={"/write"} style={{ textDecoration: "none" }}>
+          <div className={`${style["right-blog-nav"]}`}>
+            <EditNoteIcon className={`${style["write-logo"]}`} />
+            <p className={`${style["right-blog-nav-p"]}`}>write</p>
           </div>
         </Link>
       </ul>

@@ -7,7 +7,7 @@ export default function TextEditor({ setData, data, handleLoader }) {
   const editorRef = useRef(null);
   const log = () => {
     if (editorRef.current) {
-      console.log(editorRef.current.getContent());
+      // console.log(editorRef.current.getContent());
       setData({ ...data, content: editorRef.current.getContent() });
     }
   };
@@ -17,7 +17,8 @@ export default function TextEditor({ setData, data, handleLoader }) {
       {/* <div className="editor" style={{ width: "100%", margin: 0 }}></div> */}
       <Editor
         onInit={(evt, editor) => (editorRef.current = editor)}
-        apiKey="y7gnmtbsaxnjbgh3405ioqbdm24eit5f0ovek49w8yvq5r9q"
+        // apiKey="y7gnmtbsaxnjbgh3405ioqbdm24eit5f0ovek49w8yvq5r9q"
+        apiKey="5mdbv04bin261efmo9q0uzr93hcdgtix1pfvkct8pjj02rzi"
         initialValue=""
         init={{
           branding: false,

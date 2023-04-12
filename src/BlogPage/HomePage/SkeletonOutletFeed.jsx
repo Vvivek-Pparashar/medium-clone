@@ -1,13 +1,16 @@
 import React from "react";
 import "./Card/Card.css";
+import "./SkeletonOutletFeed.css";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const SkeletonOutletFeed = () => {
   return (
-    <div className="mb-card" key={98999}>
+    <div className="mb-card" style={{ width: "100%" }} key={98999}>
+      {/* Author Details */}
       <div
         style={{
+          width: "100%",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
@@ -18,30 +21,30 @@ const SkeletonOutletFeed = () => {
         <Skeleton width={90} height={10} />
         <Skeleton width={90} height={10} />
       </div>
-      <div className="mb-card-c">
-        <div
-          className="mb-card-l"
-          style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            gap: "10px",
-          }}
-        >
-          <Skeleton style={{ width: "100%" }} height={70} />
-          <Skeleton style={{ width: "100%" }} height={70} />
+
+      {/* End of author details */}
+
+      {/* Starting of main content */}
+      <div className="mb-card-c" style={{ gap: "20px" }}>
+        <div className="mb-card-l">
+          <Skeleton className="sk-hd" style={{ width: "100%" }} />
+          {window.innerWidth >= 750 ? (
+            <Skeleton className="sk-hd" style={{ width: "100%", marginTop:"20px" }} />
+          ) : (
+            <></>
+          )}
 
           <div className="mb-card-l-bottom">
-            <Skeleton width={90} height={10} />
-            <Skeleton width={90} height={10} />
-            <Skeleton width={90} height={10} />
+            <Skeleton className="sk-btm" />
+            <Skeleton className="sk-btm" />
+            <Skeleton className="sk-btm" />
           </div>
         </div>
         <div className="mb-card-r">
           <Skeleton className="mb-card-r-img" />
-          <Skeleton width={100} height={100} />
         </div>
       </div>
+      {/* Ending of main content */}
     </div>
   );
 };

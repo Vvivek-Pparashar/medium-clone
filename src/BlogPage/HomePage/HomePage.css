@@ -3,6 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: row;
+  /* box-sizing: border-box; */
 }
 
 .mb-l {
@@ -127,31 +128,18 @@
 }
 
 @media screen and (max-width: 750px) {
-  .mb {
-    /* width: 100vw; */
-    /* height: 1000vh; */
-    /* background-color: blanchedalmond; */
-    /* display: flex; */
-    /* flex-direction: row; */
-  }
-
   .mb-l {
     flex: 100%;
-    /* background-color: brown; */
     padding: 0 1.5rem;
-    /* display: flex; */
-    /* flex-direction: column; */
+    padding-top: 4.3rem;
   }
 
   .mb-l-c {
     width: 100%;
-    /* height: 100vh; */
-    /* background-color: cadetblue; */
   }
 
   .mb-r {
-    /* flex: 0%; */
+    width: 0;
     display: none;
-    /* padding: 0 0rem 0 0rem; */
   }
 }

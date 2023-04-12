@@ -1,0 +1,25 @@
+.sk-btm {
+  width: 110px;
+  height: 10px;
+}
+
+.sk-hd {
+  height: 100px;
+}
+
+.mb-card-r-img {
+  width: 112px;
+  height: 112px;
+}
+
+@media screen and (max-width: 750px) {
+  .mb-card-r-img {
+    width: 80px;
+    height: 70px;
+  }
+
+  .sk-btm {
+    width: 60px;
+    height: 10px;
+  }
+}

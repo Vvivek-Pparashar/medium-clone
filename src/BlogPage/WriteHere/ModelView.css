@@ -1,0 +1,75 @@
+.Model-View {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000000;
+  display: flex;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.Model-Loading {
+  width: auto;
+  height: auto;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: white;
+}
+
+.Mo-lo-c {
+  display: flex;
+  flex-direction: column;
+}
+
+.mo-lo-c-head {
+  font-size: var(--head-4);
+  font-weight: 300;
+}
+
+.Model-error {
+  width: auto;
+  height: auto;
+  padding: 30px;
+  display: flex;
+  background: white;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+}
+
+.Model-error > button {
+  padding: 5px 20px;
+  cursor: pointer;
+  color: white;
+  background-color: var(--s-pm-2);
+  outline: none;
+  border: none;
+}
+
+.Model-Success {
+  width: auto;
+  height: auto;
+  padding: 30px 70px;
+  display: flex;
+  background: white;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.Model-Success-button {
+  padding: 5px 20px;
+  cursor: pointer;
+  color: white;
+  background-color: var(--s-pm-2);
+  outline: none;
+  border: none;
+  margin-top: 10px;
+}

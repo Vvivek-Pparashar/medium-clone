@@ -5,7 +5,7 @@ import Tags from "../Tags/Tags";
 import "./Card.css";
 
 const Card = ({ title, id, feed, img }) => {
-  feed = (feed.length >= 200 ? feed.slice(0, 100) : feed) + "..."
+  feed = (feed.length >= 200 ? feed.slice(0, 100) : feed) + "...";
 
   return (
     <div className="mb-card" key={id}>
@@ -32,12 +32,8 @@ const Card = ({ title, id, feed, img }) => {
           </div>
         </div>
         <div className="mb-card-r">
-          <Link to={`/${id}`}>
-            <img
-              className="mb-card-r-img"
-              src={img}
-              alt="blog_image"
-            />
+        <Link className="router" to={`/${id}`}>
+          <img className="mb-card-r-img" src={img} alt="blog_image" />
           </Link>
         </div>
       </div>

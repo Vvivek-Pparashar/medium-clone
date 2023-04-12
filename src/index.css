@@ -32,8 +32,13 @@
   padding: 0;
   scroll-behavior: smooth;
   overflow-anchor:none;
+  caret-color: transparent;
 }
 
+
+input{
+  caret-color: auto;
+}
 h1,
 h5,
 h2,

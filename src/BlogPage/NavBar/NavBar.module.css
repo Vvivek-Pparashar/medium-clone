@@ -36,13 +36,53 @@
   border-radius: 0.5rem;
 }
 
-.logo {
-  background: url("../../../public/assests/landingPage/darkLogo.png") no-repeat
-    center;
-  background-size: 100% auto;
-  padding-block: 2rem;
+.left-blog-nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo-blog {
   width: 10rem;
-  margin-right: auto;
+}
+
+.input-wrapper {
+  position: relative;
+}
+.search-logo {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  left: 2%;
+  /* font-size: 10px; */
+  width: 20px;
+  color: gray;
+  height: 20px;
+}
+.blog-nav-input {
+  padding: 6px 10px 6px 30px;
+  width: 300px;
+  outline: none;
+  margin-top: 4px;
+  border-radius: 30px;
+  border: 1px solid black;
+}
+
+.right-blog-nav {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: black;
+}
+
+.write-logo {
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.right-blog-nav-p {
+  font-size: var(--sm-1);
 }
 
 .activeLink {
@@ -58,4 +98,18 @@
 .scrollDown {
   top: 0;
   transition: top 500ms ease-in-out;
+}
+
+@media screen and (max-width: 750px) {
+  .m {
+    padding: 0.2rem 1rem;
+  }
+
+  .logo-blog {
+    width: 9rem;
+  }
+
+  .input-wrapper {
+    display: none;
+  }
 }

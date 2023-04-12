@@ -1,32 +1,23 @@
 .mb-card {
   width: inherit;
   height: 100%;
-  /* background-color: cornsilk; */
   display: flex;
   flex-direction: column;
   padding: 2rem 0;
-  /* color: white; */
   border-bottom: 1px solid rgb(219, 219, 219);
 }
 
 .mb-card-c {
   width: 100%;
-  /* background-color: darkmagenta; */
   height: 85%;
   display: flex;
   flex-direction: row;
   margin-top: 10px;
 }
 
-.router{
-  text-decoration: none;
-  color: black;
-}
 .mb-card-l {
   flex: 70%;
-  /* background-color: darkblue; */
   position: relative;
-  text-decoration: none;
 }
 
 .mb-card-l-h3 {
@@ -59,9 +50,9 @@
 
 .mb-card-r {
   flex: 30%;
-  /* background-color: black; */
   display: flex;
   justify-content: flex-end;
+  align-items: flex-start;
 }
 
 .mb-card-r-img {
@@ -69,9 +60,14 @@
   height: 112px;
 }
 
+.router{
+  color: black;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 750px) {
   .mb-card {
-    height: 50vw;
+    height: 100%;
     padding: 1rem 0;
   }
 

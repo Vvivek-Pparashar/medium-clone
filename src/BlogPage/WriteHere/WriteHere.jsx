@@ -5,6 +5,9 @@ import "./WriteHere.css";
 import CloseIcon from "@mui/icons-material/Close";
 import axios from "axios";
 import SkeletonWriteHere from "./SkeletonWriteHere";
+import { sentiment, classify, filter, filterTag } from "../Checker";
+import ModelView from "./ModelView";
+import { Button, Modal, Space } from "antd";
 
 const url = "http://localhost:3002/api/blogs";
 
@@ -12,8 +15,10 @@ const WriteHere = () => {
   const [data, setData] = useState({ title: "", content: "", img: "" });
   const [preview, setPreview] = useState(false);
   const [loader, setLoader] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [modelText, setModelText] = useState(1);
 
-  const postArticle = () => {
+  const postArticle = async () => {
     if (!loader) {
       if (data.title <= 5) {
         alert("Heading Should Be More Than 5 Words");
@@ -26,16 +31,53 @@ const WriteHere = () => {
           } more character to validate`
         );
       } else {
-        axios({
-          method: "post",
-          url: url,
-          data: {
-            title: data.title,
-            content: data.content,
-            feed: "Education entails acquiring knowledge to have a greater understanding of the various disciplines that will be used in our everyday lives.",
-            img: data.img,
-          },
-        });
+        console.log("publish clicked");
+        const condata = filterTag(data.content);
+
+        console.log(condata);
+
+        setPreview(false);
+        setOpen(true);
+        setModelText(1);
+
+        const clacont = filter(await classify(condata.slice(0, 420)));
+        console.log("1", clacont);
+        const claHead = filter(await classify(data.title));
+        console.log("2", claHead);
+        const senCont = filter(await sentiment(condata.slice(0, 420)));
+        console.log("3", senCont);
+        const senHead = filter(await sentiment(data.title));
+        console.log("4", senHead);
+
+        // setModelText(2);
+        // setOpen(false);
+
+        // && (senHead[0] !== "NEG" && senCont[0] !== "NEG"
+
+        console.log(senCont, senHead);
+
+        if (clacont[1] <= 0.75 && claHead[1] <= 0.75) {
+          setModelText(3);
+        } else if (
+          ((senHead[0] === "NEG") && (senHead[1] >= 0.75)) ||
+          ((senCont[0] === "NEG") && (senCont[1] >= 0.75))
+        ) {
+          console.log("vivekisgr888")
+          setModelText(3);
+        } else {
+          axios({
+            method: "post",
+            url: url,
+            data: {
+              title: data.title,
+              content: data.content,
+              feed: condata.slice(0, 200) + "...",
+              img: data.img,
+            },
+          });
+
+          setModelText(2);
+        }
       }
     }
   };
@@ -65,7 +107,10 @@ const WriteHere = () => {
     setLoader(false);
   };
 
-  console.log(data);
+  const handleCloseModel = () => {
+    setOpen(false);
+  };
+
   return (
     <div className={`wh`}>
       {/* Nav Bar for write page */}
@@ -82,6 +127,11 @@ const WriteHere = () => {
       {/* Preview page for preview the article, active when clicked on preview button */}
       {/* Close when clicked on close button and X button in preview page */}
 
+      {open ? (
+        <ModelView handleCloseModel={handleCloseModel} model={modelText} />
+      ) : (
+        <></>
+      )}
       <div className={`preview ${preview ? "active" : ""}`}>
         {/* To close the preview page */}
         <CloseIcon className="closeButton" onClick={handleClose} />
@@ -109,7 +159,7 @@ const WriteHere = () => {
           {/* Form for all content of article */}
           <form>
             {/* Input the title of  */}
-            <h1>Title</h1>
+            <h3 className="write-head">Title</h3>
             <input
               value={data.title}
               placeholder={"title"}
@@ -121,7 +171,7 @@ const WriteHere = () => {
             />
 
             {/* To input image url */}
-            <h1>Image url</h1>
+            <h3 className="write-head">Image url</h3>
             <input
               type={"url"}
               value={data.img}
@@ -131,7 +181,7 @@ const WriteHere = () => {
           </form>
 
           {/* Text editor */}
-          <h1>Content</h1>
+          <h3 className="write-head">Content</h3>
           <TextEditor
             data={data}
             setData={setData}
