@@ -1,16 +1,13 @@
-const fetch = require("node-fetch");
-// const fetch = require("axios");
+import axios, * as others from "axios";
 
 async function query(API_URL, payload) {
-  const response = await fetch(API_URL, {
-    method: "POST",
+  const response = await axios.post(API_URL, payload, {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer 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",
     },
-    body: JSON.stringify(payload),
   });
-  const data = await response.json();
+  const data = response.data;
   return data.data;
 }
 
@@ -44,16 +41,16 @@ function filterTag(res) {
   let value = "";
   let flag = false;
 
- res.replace(/&nbsp;/g, " ")
+  res.replace(/&nbsp;/g, " ");
 
   for (let i = 0; i < res.length; i++) {
     let j = res.charAt(i);
-    if (j === '<') {
+    if (j === "<") {
       flag = true;
       continue;
     }
 
-    if (j === '>') {
+    if (j === ">") {
       flag = false;
       continue;
     }
@@ -64,19 +61,7 @@ function filterTag(res) {
     value = value + j;
   }
 
-  // console.log(value.replace(/&nbsp;/g, ""));
-
   return value.replace(/&nbsp;/g, "");
 }
-
-// (async function () {
-//   const cla = await classify(
-//     "Education entails acquiring knowledge to have a greater understanding of the various disciplines that will be used in our everyday lives. ‘Education’ refers to the information we gain and experience outside of books or classrooms, as well as the knowledge that we receive and experience in schools, our homes, and as members of society. Our ideas on life alter as a result of learning, education is crucial for personal development and growth in society. In this blog, we will see why we need education for growth and will also look at some articles on the importance of education."
-//   );
-//   const sen = await sentiment(
-//     "Education entails acquiring knowledge to have a greater understanding of the various disciplines that will be used in our everyday lives. ‘Education’ refers to the information we gain and experience outside of books or classrooms, as well as the knowledge that we receive and experience in schools, our homes, and as members of society. Our ideas on life alter as a result of learning, education is crucial for personal development and growth in society. In this blog, we will see why we need education for growth and will also look at some articles on the importance of education."
-//   );
-//   console.log(filter(cla), filter(sen));
-// })();
 
 export { classify, sentiment, filter, filterTag };

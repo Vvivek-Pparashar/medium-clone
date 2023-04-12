@@ -7,7 +7,6 @@ import axios from "axios";
 import SkeletonWriteHere from "./SkeletonWriteHere";
 import { sentiment, classify, filter, filterTag } from "../Checker";
 import ModelView from "./ModelView";
-import { Button, Modal, Space } from "antd";
 
 const url = "http://localhost:3002/api/blogs";
 
@@ -20,11 +19,11 @@ const WriteHere = () => {
 
   const postArticle = async () => {
     if (!loader) {
-      if (data.title <= 5) {
+      if (data.title.length <= 5) {
         alert("Heading Should Be More Than 5 Words");
-      } else if (data.img <= 10) {
+      } else if (data.img.length <= 10) {
         alert("Insert Valid Image URL");
-      } else if (data.content <= 1000) {
+      } else if (data.content.length <= 10) {
         alert(
           `content Should Be More Than 1000 Words, write ${
             1000 - data.content
@@ -53,10 +52,10 @@ const WriteHere = () => {
         if (clacont[1] <= 0.75 && claHead[1] <= 0.75) {
           setModelText(3);
         } else if (
-          ((senHead[0] === "NEG") && (senHead[1] >= 0.75)) ||
-          ((senCont[0] === "NEG") && (senCont[1] >= 0.75))
+          (senHead[0] === "NEG" && senHead[1] >= 0.75) ||
+          (senCont[0] === "NEG" && senCont[1] >= 0.75)
         ) {
-          console.log("vivekisgr888")
+          console.log("vivekisgr888");
           setModelText(3);
         } else {
           axios({
@@ -104,6 +103,8 @@ const WriteHere = () => {
   const handleCloseModel = () => {
     setOpen(false);
   };
+
+  console.log(data);
 
   return (
     <div className={`wh`}>
