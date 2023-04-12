@@ -31,30 +31,24 @@ const WriteHere = () => {
           } more character to validate`
         );
       } else {
-        console.log("publish clicked");
+        // console.log("publish clicked");
         const condata = filterTag(data.content);
 
-        console.log(condata);
+        // console.log(condata);
 
         setPreview(false);
         setOpen(true);
         setModelText(1);
 
         const clacont = filter(await classify(condata.slice(0, 420)));
-        console.log("1", clacont);
+        // console.log("1", clacont);
         const claHead = filter(await classify(data.title));
-        console.log("2", claHead);
+        // console.log("2", claHead);
         const senCont = filter(await sentiment(condata.slice(0, 420)));
-        console.log("3", senCont);
+        // console.log("3", senCont);
         const senHead = filter(await sentiment(data.title));
-        console.log("4", senHead);
 
-        // setModelText(2);
-        // setOpen(false);
-
-        // && (senHead[0] !== "NEG" && senCont[0] !== "NEG"
-
-        console.log(senCont, senHead);
+        // console.log(senCont, senHead);
 
         if (clacont[1] <= 0.75 && claHead[1] <= 0.75) {
           setModelText(3);
